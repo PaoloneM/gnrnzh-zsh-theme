@@ -21,5 +21,5 @@ Adds kube-ps1 info in path
 ## License
 Gnrnzh zsh theme is released under the [MIT license](LICENSE.txt).
 
-##
+## Credits
 Thanks to [@macno](https://github.com/macno) for inspiring theme name!
