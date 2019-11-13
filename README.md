@@ -5,9 +5,18 @@ Customization of gnzh.zsh-theme from oh-my-zsh.
 ## Installing
 First download the theme:
 
+using wget:
 ```
-wget https://raw.githubusercontent.com/PaoloneM/gnrnzh-zsh-theme/master/gnrnzh.zsh-theme  -O ~/.oh-my-zsh/themes/gnrnzh.zsh-theme
+wget https://raw.githubusercontent.com/PaoloneM/gnrnzh-zsh-theme/master/gnrnzh.zsh-theme \
+  -O ~/.oh-my-zsh/themes/gnrnzh.zsh-theme
 ```
+
+using curl:
+```
+curl https://raw.githubusercontent.com/PaoloneM/gnrnzh-zsh-theme/master/gnrnzh.zsh-theme \
+  -o ~/.oh-my-zsh/themes/gnrnzh.zsh-theme
+```
+
 then simply select it in your `~/.zshrc file`:
 ```
 ZSH_THEME="gnrnzh"
