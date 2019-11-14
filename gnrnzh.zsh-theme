@@ -2,6 +2,26 @@
 
 setopt prompt_subst
 
+local _fix_space () {
+  [[ "${1}" = "" ]] && return
+  echo " ${1}"
+}
+
+local _kube_info () {
+  local _prompt=$(kube_ps1)
+  _fix_space "${_prompt}"
+}
+
+local _ruby_info () {
+  local _prompt=$(ruby_prompt_info)
+  _fix_space "${_prompt}"
+}
+
+local _git_info () {
+  local _prompt=$(git_prompt_info)
+  _fix_space "${_prompt}"
+}
+
 () {
 
 local PR_USER PR_USER_OP PR_PROMPT PR_HOST
@@ -29,10 +49,11 @@ local return_code="%(?..%F{red}%? ↵%f)"
 
 local user_host="${PR_USER}%F{cyan}@${PR_HOST}"
 local current_dir="%B%F{blue}%~%f%b"
-local git_branch='$(git_prompt_info)'
-local kube_info='$(kube_ps1)'
+local git_branch='$(_git_info)'
+local kube_info='$(_kube_info)'
+local ruby_info='$(_ruby_info)'
 
-PROMPT="╭─${user_host} ${current_dir} \$(ruby_prompt_info) ${kube_info} ${git_branch} 
+PROMPT="╭─${user_host} ${current_dir}${ruby_info}${kube_info}${git_branch}
 ╰─$PR_PROMPT "
 RPROMPT="${return_code}"
 
